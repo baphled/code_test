@@ -7,13 +7,8 @@ development:
   database: db/development_database.sqlite3
 
 staging:
-  adapter:  mysql2
-  database: code_test_staging
-  encoding: utf8
-  pool:     5
-  host:     <%= ENV['DB_HOST'] %>
-  username: <%= ENV['DB_USERNAME'] %>
-  password: <%= ENV['DB_PASSWORD'] %>
+  adapter:  sqlite3
+  database: db/staging_database.sqlite3
 
 production:
   adapter:  mysql2
