@@ -22,7 +22,7 @@
 
 ### Environments variables
 Check .env.example
--LEAD_API_PGUID="CFFBF53F-6D89-4B5B-8B36-67A97F18EDEB"
--LEAD_API_PACCNAME="MicDevtest"
--LEAD_API_PPARTNER="MicDevtest"
--LEAD_API_ACCESS_TOKEN=provide_by_maket_it_cheaper
+- LEAD_API_PGUID="CFFBF53F-6D89-4B5B-8B36-67A97F18EDEB"
+- LEAD_API_PACCNAME="MicDevtest"
+- LEAD_API_PPARTNER="MicDevtest"
+- LEAD_API_ACCESS_TOKEN=provide_by_maket_it_cheaper
