@@ -19,12 +19,6 @@
 - `rake db:create db:migrate` (If you use DB, sqlite3. Possible to do the test without any DB)
 - `rails s`
 
-## Prerequies server / development
-    ruby 2.4.2
-    curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-    echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-    sudo apt-get update && sudo apt-get install yarn
-
 ## Test
     bundle exec rspec
 
