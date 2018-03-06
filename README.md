@@ -1,18 +1,16 @@
 # Make it Cheaper Code Test
 
-#### 1. Fork this project to you git
+#### 1. Fork this project to your github
 
 #### 2. Do the test
 - Api Documentation on http://mic-leads.dev-test.makeiteasy.com/api/v1/docs
 - Copy/paste .env.example to .env
-- Cetup Api token provide by Make It Cheaper
+- Setup Api token provide by Make It Cheaper
 - `bundle install`
 - `rails s`
 
 #### 3. When finish provide:
-- Git url to allow us reading/run code
-- The token used (to find you leads in your databases)
-- **Bonus only**: Url of the app (in case you have deploy your app in the cloud)
+- Git url to allow us reading/run code or create a Pull Request
 
 #### 4. Your app must start with:
 - `bundle install`
@@ -24,9 +22,7 @@
 
 ### Environments variables
 Check .env.example
-- `LEAD_API_PACCNAME`
-- `LEAD_API_PGUID`
-- `LEAD_API_PPARTNER`
-- `LEAD_API_ACCESS_TOKEN`
-- `LEAD_API_URI`
-- `SECRET_KEY_BASE`
+-LEAD_API_PGUID="CFFBF53F-6D89-4B5B-8B36-67A97F18EDEB"
+-LEAD_API_PACCNAME="MicDevtest"
+-LEAD_API_PPARTNER="MicDevtest"
+-LEAD_API_ACCESS_TOKEN=provide_by_maket_it_cheaper
