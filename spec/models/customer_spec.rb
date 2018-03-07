@@ -170,5 +170,57 @@ RSpec.describe Customer do
         end
       end
     end
+
+    context 'pPartner not passed' do
+      let(:pPartner) { nil }
+      subject { described_class.new }
+
+      it 'must have a pPartner' do
+        VCR.use_cassette 'POST without pPartner' do
+          expect {
+            subject.post(:create, params)
+          }.to raise_error(ActiveResource::BadRequest)
+        end
+      end
+    end
+
+    context 'name not passed' do
+      let(:name) { nil }
+      subject { described_class.new }
+
+      it 'must have a name' do
+        VCR.use_cassette 'POST without name' do
+          expect {
+            subject.post(:create, params)
+          }.to raise_error(ActiveResource::BadRequest)
+        end
+      end
+    end
+
+    context 'business_name not passed' do
+      let(:business_name) { nil }
+      subject { described_class.new }
+
+      it 'must have a business_name' do
+        VCR.use_cassette 'POST without business_name' do
+          expect {
+            subject.post(:create, params)
+          }.to raise_error(ActiveResource::BadRequest)
+        end
+      end
+    end
+
+    context 'telephone_number not passed' do
+      let(:telephone_number) { nil }
+      subject { described_class.new }
+
+      it 'must have a telephone_number' do
+        VCR.use_cassette 'POST without telephone_number' do
+          expect {
+            subject.post(:create, params)
+          }.to raise_error(ActiveResource::BadRequest)
+        end
+      end
+    end
   end
 end
