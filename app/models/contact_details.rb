@@ -16,8 +16,9 @@ class ContactDetails
 
   def self.post(params)
     begin
-      Customer.new.post(:create, params)
-    rescue ActiveResource::BadRequest => e
+      response = Customer.new.post(:create, params)
+      JSON.parse(response.body)
+    rescue ActiveResource::UnauthorizedAccess, ActiveResource::BadRequest => e
       JSON.parse(e.response.body)
     end
   end

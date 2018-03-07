@@ -1,5 +1,21 @@
 <section id="contact">
+  <% if @response %>
+    <section class='message'>
+      <%= @response['message'] %>
+
+      <% if @response['errors'] %>
+        <ul>
+          <% @response['errors'].each do |error| %>
+            <li><%= error %></li>
+          <% end %>
+        </ul>
+      <% end %>
+
+    </section>
+  <%end %>
+
   <%= simple_form_for @contact_details, url: contact_details_path, method: :post do |f| %>
+    <%= f.input :name %>
     <%= f.input :business_name %>
     <%= f.input :telephone_number %>
     <%= f.input :email %>

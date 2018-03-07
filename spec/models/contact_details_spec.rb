@@ -107,4 +107,19 @@ RSpec.describe ContactDetails do
 
     it 'reference must be the correct format'
   end
+
+  describe '.post' do
+    let(:expected) do
+      {
+        'message' => 'Enqueue success',
+        'errors' => []
+      }
+    end
+
+    it 'returns a message' do
+      VCR.use_cassette 'POST without error' do
+        expect(subject.post(params)).to eql(expected)
+      end
+    end
+  end
 end
