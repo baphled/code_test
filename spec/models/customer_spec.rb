@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Customer do
-  let(:auth_token) { '5bf520347a29d3e1a72898e01449120a' }
+  let(:access_token) { '5bf520347a29d3e1a72898e01449120a' }
   let(:pGUID) { 'CFFBF53F-6D89-4B5B-8B36-67A97F18EDEB' }
   let(:pAccName) { 'MicDevtest' }
   let(:pPartner) { 'MicDevtest' }
@@ -12,7 +12,7 @@ RSpec.describe Customer do
 
   subject do
     described_class.new(
-      auth_token: auth_token,
+      access_token: access_token,
       pGUID: pGUID,
       pAccName: pAccName,
       pPartner: pPartner,
@@ -25,7 +25,7 @@ RSpec.describe Customer do
   describe '#new' do
     subject do 
       described_class.new(
-        auth_token: auth_token,
+        access_token: access_token,
         pGUID: pGUID,
         pAccName: pAccName,
         pPartner: pPartner,
@@ -75,7 +75,7 @@ RSpec.describe Customer do
     end
   end
 
-  describe '#save' do
+  describe '#post' do
     let(:email) { 'y@me.com' }
     let(:contact_name) { 'Joe Bloggs' }
     let(:notes) { 'My notes' }
@@ -83,7 +83,7 @@ RSpec.describe Customer do
 
     let(:params) do 
       {
-        auth_token: auth_token,
+        access_token: access_token,
         pGUID: pGUID,
         pAccName: pAccName,
         pPartner: pPartner,
@@ -97,14 +97,56 @@ RSpec.describe Customer do
       }
     end
 
-    context 'invalid parameters' do
-      it 'must have a auth token' do
-        VCR.use_cassette 'POST without auth_token' do
-          expect {
-            params[:auth_token] = nil
+    let(:expected) do
+      {
+        message: 'Enqueue success',
+        errors: []
+      }
+    end
 
+    subject { described_class.new(params) }
+
+    it 'can handle a successful request' do
+      VCR.use_cassette 'POST with correct params' do
+        expect(subject.post(:create, params).body).to eql(JSON.generate(expected))
+      end
+    end
+
+    context 'access token not passed' do
+      let(:access_token) { nil }
+      subject { described_class.new }
+
+      it 'must have a access token' do
+        VCR.use_cassette 'POST without access_token' do
+          expect {
             subject.post(:create, params)
           }.to raise_error(ActiveResource::UnauthorizedAccess)
+        end
+      end
+    end
+
+    context 'pGUID not passed' do
+      let(:pGUID) { nil }
+      subject { described_class.new }
+
+      it 'must have a pGUID' do
+        VCR.use_cassette 'POST without pGUID' do
+          expect {
+            subject.post(:create, params)
+          }.to raise_error(ActiveResource::BadRequest)
+        end
+      end
+    end
+
+    context 'pAccName not passed' do
+      let(:pAccName) { nil }
+      subject { described_class.new }
+
+      it 'must have a pAccName' do
+        VCR.use_cassette 'POST without pAccName' do
+          expect {
+            subject.post(:create, params)
+          }.to raise_error(ActiveResource::BadRequest)
         end
       end
     end

@@ -1,0 +1,55 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://mic-leads.dev-test.makeiteasy.com/api/v1/create?access_token=5bf520347a29d3e1a72898e01449120a&business_name=Some%20Business&contact_name=Joe%20Bloggs&email=y@me.com&name=Joe%20Bloggs&notes=My%20notes&pAccName=MicDevtest&pGUID=&pPartner=MicDevtest&reference=My%20reference&telephone_number=0203%20333%203333
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - 400 Bad Request
+      Cache-Control:
+      - no-cache
+      X-Runtime:
+      - '0.006814'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-Request-Id:
+      - 3ffe0555-c46d-46c7-a638-3379f5c90e8a
+      Date:
+      - Wed, 07 Mar 2018 18:54:46 GMT
+      X-Powered-By:
+      - Phusion Passenger 5.1.12
+      Server:
+      - nginx + Phusion Passenger 5.1.12
+    body:
+      encoding: UTF-8
+      string: '{"message":"Format errors on validation","errors":["Field ''pGUID''
+        is blank","Field ''pGUID'' wrong format"]}'
+    http_version: 
+  recorded_at: Wed, 07 Mar 2018 18:54:46 GMT
+recorded_with: VCR 4.0.0
