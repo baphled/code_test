@@ -2,17 +2,17 @@
 http_interactions:
 - request:
     method: post
-    uri: http://mic-leads.dev-test.makeiteasy.com/api/v1/create?access_token=&business_name=Some%20Business&contact_name=Joe%20Bloggs&email=y@me.com&name=Joe%20Bloggs&notes=My%20notes&pAccName=MicDevtest&pGUID=CFFBF53F-6D89-4B5B-8B36-67A97F18EDEB&pPartner=MicDevtest&reference=My%20reference&telephone_number=0203%20333%203333
+    uri: http://mic-leads.dev-test.makeiteasy.com/api/v1/create?business_name=Some%20Business&contact_name=Joe%20Bloggs&email=y@me.com&name=Joe%20Bloggs&notes=My%20notes&pAccName=MicDevtest&pGUID=CFFBF53F-6D89-4B5B-8B36-67A97F18EDEB&pPartner=MicDevtest&reference=My%20reference&telephone_number=0203%20333%203333
     body:
       encoding: UTF-8
       string: "{}"
     headers:
       Content-Type:
       - application/x-www-form-urlencoded
+      Accept:
+      - application/json
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
       User-Agent:
       - Ruby
   response:
@@ -31,7 +31,7 @@ http_interactions:
       Cache-Control:
       - no-cache
       X-Runtime:
-      - '0.004947'
+      - '0.002346'
       X-Frame-Options:
       - SAMEORIGIN
       X-Xss-Protection:
@@ -39,9 +39,9 @@ http_interactions:
       X-Content-Type-Options:
       - nosniff
       X-Request-Id:
-      - 0703c16b-9c3a-472b-bbfa-c9c8b3ae68df
+      - 1b0bb594-9dfb-4456-8bff-a266bc5e88d5
       Date:
-      - Wed, 07 Mar 2018 18:54:46 GMT
+      - Wed, 07 Mar 2018 21:24:10 GMT
       X-Powered-By:
       - Phusion Passenger 5.1.12
       Server:
@@ -50,5 +50,5 @@ http_interactions:
       encoding: UTF-8
       string: '{"message":"Unauthorised access_token"}'
     http_version: 
-  recorded_at: Wed, 07 Mar 2018 18:54:46 GMT
+  recorded_at: Wed, 07 Mar 2018 21:24:10 GMT
 recorded_with: VCR 4.0.0

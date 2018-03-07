@@ -2,17 +2,17 @@
 http_interactions:
 - request:
     method: post
-    uri: http://mic-leads.dev-test.makeiteasy.com/api/v1/create?access_token=5bf520347a29d3e1a72898e01449120a&business_name=Some%20Business&contact_name=Joe%20Bloggs&email=y@me.com&name=Joe%20Bloggs&notes=My%20notes&pAccName=MicDevtest&pGUID=&pPartner=MicDevtest&reference=My%20reference&telephone_number=0203%20333%203333
+    uri: http://mic-leads.dev-test.makeiteasy.com/api/v1/create?access_token=5bf520347a29d3e1a72898e01449120a&business_name=Some%20Business&contact_name=Joe%20Bloggs&email=y@me.com&name=Joe%20Bloggs&notes=My%20notes&pAccName=MicDevtest&pPartner=MicDevtest&reference=My%20reference&telephone_number=0203%20333%203333
     body:
       encoding: UTF-8
       string: "{}"
     headers:
       Content-Type:
       - application/x-www-form-urlencoded
+      Accept:
+      - application/json
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
       User-Agent:
       - Ruby
   response:
@@ -31,7 +31,7 @@ http_interactions:
       Cache-Control:
       - no-cache
       X-Runtime:
-      - '0.006814'
+      - '0.005326'
       X-Frame-Options:
       - SAMEORIGIN
       X-Xss-Protection:
@@ -39,9 +39,9 @@ http_interactions:
       X-Content-Type-Options:
       - nosniff
       X-Request-Id:
-      - 3ffe0555-c46d-46c7-a638-3379f5c90e8a
+      - db252feb-3910-4072-94d3-2553ed193466
       Date:
-      - Wed, 07 Mar 2018 18:54:46 GMT
+      - Wed, 07 Mar 2018 21:25:02 GMT
       X-Powered-By:
       - Phusion Passenger 5.1.12
       Server:
@@ -49,7 +49,7 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"message":"Format errors on validation","errors":["Field ''pGUID''
-        is blank","Field ''pGUID'' wrong format"]}'
+        isn''t present","Field ''pGUID'' is blank","Field ''pGUID'' wrong format"]}'
     http_version: 
-  recorded_at: Wed, 07 Mar 2018 18:54:46 GMT
+  recorded_at: Wed, 07 Mar 2018 21:25:02 GMT
 recorded_with: VCR 4.0.0

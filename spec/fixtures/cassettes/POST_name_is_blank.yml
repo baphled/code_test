@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: http://mic-leads.dev-test.makeiteasy.com/api/v1/create?access_token=5bf520347a29d3e1a72898e01449120a&business_name=Some%20Business&contact_name=Joe%20Bloggs&email=y@me.com&name=Joe%20Bloggs&notes=My%20notes&pAccName=MicDevtest&pGUID=CFFBF53F-6D89-4B5B-8B36-67A97F18EDEB&pPartner=MicDevtest&reference=My%20reference&telephone_number=
+    uri: http://mic-leads.dev-test.makeiteasy.com/api/v1/create?access_token=5bf520347a29d3e1a72898e01449120a&business_name=Some%20Business&contact_name=Joe%20Bloggs&email=y@me.com&name=&notes=My%20notes&pAccName=MicDevtest&pGUID=CFFBF53F-6D89-4B5B-8B36-67A97F18EDEB&pPartner=MicDevtest&reference=My%20reference&telephone_number=0203%20333%203333
     body:
       encoding: UTF-8
       string: "{}"
@@ -31,7 +31,7 @@ http_interactions:
       Cache-Control:
       - no-cache
       X-Runtime:
-      - '0.005025'
+      - '0.004521'
       X-Frame-Options:
       - SAMEORIGIN
       X-Xss-Protection:
@@ -39,18 +39,18 @@ http_interactions:
       X-Content-Type-Options:
       - nosniff
       X-Request-Id:
-      - fea72e06-a92f-405f-93e5-1af6c26599ff
+      - aac49199-dc9c-416b-952f-4a051947dbbb
       Date:
-      - Wed, 07 Mar 2018 20:25:06 GMT
+      - Wed, 07 Mar 2018 21:24:10 GMT
       X-Powered-By:
       - Phusion Passenger 5.1.12
       Server:
       - nginx + Phusion Passenger 5.1.12
     body:
       encoding: UTF-8
-      string: '{"message":"Format errors on validation","errors":["Field ''telephone_number''
-        is blank","Field ''telephone_number'' wrong format (must contain have valid
-        phone number with 11 numbers. string max 13 chars)"]}'
+      string: '{"message":"Format errors on validation","errors":["Field ''name''
+        is blank","Field ''name'' wrong format, ''name'' must be composed with 2 separated
+        words (space between)"]}'
     http_version: 
-  recorded_at: Wed, 07 Mar 2018 20:25:06 GMT
+  recorded_at: Wed, 07 Mar 2018 21:24:10 GMT
 recorded_with: VCR 4.0.0

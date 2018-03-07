@@ -36,9 +36,9 @@ RSpec.describe ContactDetails do
   context 'validation' do
     it 'must have a pGUID' do
       VCR.use_cassette 'POST without pGUID' do
-        params.delete(:pPartner)
+        params.delete(:pGUID)
 
-        expect(subject.post(params)['errors']).to include("Field 'pPartner' isn't present")
+        expect(subject.post(params)['errors']).to include("Field 'pGUID' isn't present")
       end
     end
 
@@ -67,7 +67,7 @@ RSpec.describe ContactDetails do
     end
 
     it 'pAccName can not be blank' do
-      VCR.use_cassette 'POST with without pAccName' do
+      VCR.use_cassette 'POST pAccName is blank' do
         params[:pAccName] = nil
 
         expect(subject.post(params)['errors']).to include("Field 'pAccName' is blank")

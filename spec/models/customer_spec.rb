@@ -118,6 +118,8 @@ RSpec.describe Customer do
 
       it 'must have a access token' do
         VCR.use_cassette 'POST without access_token' do
+          params.delete(:access_token)
+
           expect {
             subject.post(:create, params)
           }.to raise_error(ActiveResource::UnauthorizedAccess)
@@ -140,7 +142,7 @@ RSpec.describe Customer do
       subject { described_class.new }
 
       it 'must have a pGUID' do
-        VCR.use_cassette 'POST without pGUID' do
+        VCR.use_cassette 'POST pGUID is blank' do
           expect {
             subject.post(:create, params)
           }.to raise_error(ActiveResource::BadRequest)
@@ -148,7 +150,7 @@ RSpec.describe Customer do
       end
 
       it 'has access to the request errors' do
-        VCR.use_cassette 'POST without pGUID' do
+        VCR.use_cassette 'POST pGUID is blank' do
           begin
             subject.post(:create, params)
           rescue ActiveResource::BadRequest => e
@@ -163,7 +165,7 @@ RSpec.describe Customer do
       subject { described_class.new }
 
       it 'must have a pAccName' do
-        VCR.use_cassette 'POST without pAccName' do
+        VCR.use_cassette 'POST pAccName is blank' do
           expect {
             subject.post(:create, params)
           }.to raise_error(ActiveResource::BadRequest)
@@ -176,7 +178,7 @@ RSpec.describe Customer do
       subject { described_class.new }
 
       it 'must have a pPartner' do
-        VCR.use_cassette 'POST without pPartner' do
+        VCR.use_cassette 'POST pPartner is blank' do
           expect {
             subject.post(:create, params)
           }.to raise_error(ActiveResource::BadRequest)
@@ -189,7 +191,7 @@ RSpec.describe Customer do
       subject { described_class.new }
 
       it 'must have a name' do
-        VCR.use_cassette 'POST without name' do
+        VCR.use_cassette 'POST name is blank' do
           expect {
             subject.post(:create, params)
           }.to raise_error(ActiveResource::BadRequest)
@@ -202,7 +204,7 @@ RSpec.describe Customer do
       subject { described_class.new }
 
       it 'must have a business_name' do
-        VCR.use_cassette 'POST without business_name' do
+        VCR.use_cassette 'POST business_name is blank' do
           expect {
             subject.post(:create, params)
           }.to raise_error(ActiveResource::BadRequest)
@@ -215,7 +217,7 @@ RSpec.describe Customer do
       subject { described_class.new }
 
       it 'must have a telephone_number' do
-        VCR.use_cassette 'POST without telephone_number' do
+        VCR.use_cassette 'POST telephone_number is blank' do
           expect {
             subject.post(:create, params)
           }.to raise_error(ActiveResource::BadRequest)
