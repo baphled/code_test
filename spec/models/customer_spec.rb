@@ -127,6 +127,16 @@ RSpec.describe Customer do
 
     context 'pGUID not passed' do
       let(:pGUID) { nil }
+      let(:expected) do
+        {
+          message: 'Format errors on validation',
+          errors: [
+            "Field 'pGUID' is blank",
+            "Field 'pGUID' wrong format"
+          ]
+        }
+      end
+
       subject { described_class.new }
 
       it 'must have a pGUID' do
@@ -134,6 +144,16 @@ RSpec.describe Customer do
           expect {
             subject.post(:create, params)
           }.to raise_error(ActiveResource::BadRequest)
+        end
+      end
+
+      it 'has access to the request errors' do
+        VCR.use_cassette 'POST without pGUID' do
+          begin
+            subject.post(:create, params)
+          rescue ActiveResource::BadRequest => e
+            expect(e.response.body).to eql(JSON.generate(expected))
+          end
         end
       end
     end
