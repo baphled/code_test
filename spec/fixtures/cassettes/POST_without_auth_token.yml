@@ -1,0 +1,55 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://mic-leads.dev-test.makeiteasy.com/api/v1/create?auth_token=&business_name=Some%20Business&contact_name=Joe%20Bloggs&email=y@me.com&name=Joe%20Bloggs&notes=My%20notes&pAccName=MicDevtest&pGUID=CFFBF53F-6D89-4B5B-8B36-67A97F18EDEB&pPartner=MicDevtest&reference=My%20reference&telephone_number=0203%20333%203333
+    body:
+      encoding: UTF-8
+      string: '{"auth_token":"5bf520347a29d3e1a72898e01449120a","pGUID":"CFFBF53F-6D89-4B5B-8B36-67A97F18EDEB","pAccName":"MicDevtest","pPartner":"MicDevtest","name":"Joe
+        Bloggs","business_name":"Some Business","telephone_number":"0203 333 3333"}'
+    headers:
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - 401 Unauthorized
+      Cache-Control:
+      - no-cache
+      X-Runtime:
+      - '0.006588'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-Request-Id:
+      - 19155372-df1b-4b31-9eae-6abe695123e5
+      Date:
+      - Wed, 07 Mar 2018 18:06:33 GMT
+      X-Powered-By:
+      - Phusion Passenger 5.1.12
+      Server:
+      - nginx + Phusion Passenger 5.1.12
+    body:
+      encoding: UTF-8
+      string: '{"message":"Unauthorised access_token"}'
+    http_version: 
+  recorded_at: Wed, 07 Mar 2018 18:06:33 GMT
+recorded_with: VCR 4.0.0

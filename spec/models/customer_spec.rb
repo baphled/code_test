@@ -22,57 +22,6 @@ RSpec.describe Customer do
     )
   end
 
-  context 'validation' do
-    it 'must have a access token' do
-      subject.auth_token = nil
-
-      expect(subject).not_to be_valid
-      expect(subject.errors.messages[:auth_token]).to eql(["can't be blank"])
-    end
-
-    it 'must have a pGUID' do
-      subject.pGUID = nil
-
-      expect(subject).not_to be_valid
-      expect(subject.errors.messages[:pGUID]).to eql(["can't be blank"])
-    end
-
-    it 'must have a pAccName' do
-      subject.pAccName = nil
-
-      expect(subject).not_to be_valid
-      expect(subject.errors.messages[:pAccName]).to eql(["can't be blank"])
-    end
-
-    it 'must have a pPartner' do
-      subject.pPartner = nil
-
-      expect(subject).not_to be_valid
-      expect(subject.errors.messages[:pPartner]).to eql(["can't be blank"])
-    end
-
-    it 'must have a name' do
-      subject.name = nil
-
-      expect(subject).not_to be_valid
-      expect(subject.errors.messages[:name]).to eql(["can't be blank"])
-    end
-
-    it 'must have a business name' do
-      subject.business_name = nil
-
-      expect(subject).not_to be_valid
-      expect(subject.errors.messages[:business_name]).to eql(["can't be blank"])
-    end
-
-    it 'must have a telephone_number' do
-      subject.telephone_number = nil
-
-      expect(subject).not_to be_valid
-      expect(subject.errors.messages[:telephone_number]).to eql(["can't be blank"])
-    end
-  end
-
   describe '#new' do
     subject do 
       described_class.new(
@@ -123,6 +72,41 @@ RSpec.describe Customer do
 
     it 'has a notes' do
       expect(subject.notes).to eql(notes)
+    end
+  end
+
+  describe '#save' do
+    let(:email) { 'y@me.com' }
+    let(:contact_name) { 'Joe Bloggs' }
+    let(:notes) { 'My notes' }
+    let(:reference) { 'My reference' }
+
+    let(:params) do 
+      {
+        auth_token: auth_token,
+        pGUID: pGUID,
+        pAccName: pAccName,
+        pPartner: pPartner,
+        name: name,
+        business_name: business_name,
+        telephone_number: telephone_number,
+        email: email,
+        contact_name: contact_name,
+        notes: notes,
+        reference: reference,
+      }
+    end
+
+    context 'invalid parameters' do
+      it 'must have a auth token' do
+        VCR.use_cassette 'POST without auth_token' do
+          expect {
+            params[:auth_token] = nil
+
+            subject.post(:create, params)
+          }.to raise_error(ActiveResource::UnauthorizedAccess)
+        end
+      end
     end
   end
 end

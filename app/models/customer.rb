@@ -1,15 +1,6 @@
 class Customer < ActiveResource::Base
   self.site = 'http://mic-leads.dev-test.makeiteasy.com/api/v1'
 
-  validates_presence_of :auth_token
-  validates_presence_of :pGUID
-  validates_presence_of :pAccName
-  validates_presence_of :pPartner
-
-  validates_presence_of :name
-  validates_presence_of :business_name
-  validates_presence_of :telephone_number
-
   schema do
     attribute :business_name, :string
     attribute :telephone_number, :string
@@ -17,5 +8,11 @@ class Customer < ActiveResource::Base
     attribute :contact_name, :string
     attribute :notes, :string
     attribute :reference, :string
+  end
+
+  private
+
+  def custom_method_new_element_url(method_name, options = {})
+    "#{self.class.prefix(prefix_options)}#{method_name}#{self.class.__send__(:query_string, options)}"
   end
 end
