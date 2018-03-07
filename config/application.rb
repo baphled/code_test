@@ -10,6 +10,8 @@ require "action_view/railtie"
 require "action_cable/engine"
 require "sprockets/railtie"
 
+require 'activeresource'
+
 Bundler.require(*Rails.groups)
 
 
