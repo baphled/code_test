@@ -31,7 +31,7 @@ http_interactions:
       Cache-Control:
       - no-cache
       X-Runtime:
-      - '0.004775'
+      - '0.004523'
       X-Frame-Options:
       - SAMEORIGIN
       X-Xss-Protection:
@@ -39,9 +39,9 @@ http_interactions:
       X-Content-Type-Options:
       - nosniff
       X-Request-Id:
-      - 373bc1e7-b917-456f-9f11-4c3d4991130d
+      - 4eb1b04f-dbf3-433f-a653-63b6a05a1e5d
       Date:
-      - Wed, 07 Mar 2018 21:24:10 GMT
+      - Wed, 07 Mar 2018 21:48:34 GMT
       X-Powered-By:
       - Phusion Passenger 5.1.12
       Server:
@@ -51,5 +51,5 @@ http_interactions:
       string: '{"message":"Format errors on validation","errors":["Field ''business_name''
         is blank"]}'
     http_version: 
-  recorded_at: Wed, 07 Mar 2018 21:24:10 GMT
+  recorded_at: Wed, 07 Mar 2018 21:48:34 GMT
 recorded_with: VCR 4.0.0

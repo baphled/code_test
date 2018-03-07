@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: http://mic-leads.dev-test.makeiteasy.com/api/v1/create?access_token=5bf520347a29d3e1a72898e01449120a&business_name=Some%20Business&contact_name=Joe%20Bloggs&email=y@me.com&name=&notes=My%20notes&pAccName=MicDevtest&pGUID=CFFBF53F-6D89-4B5B-8B36-67A97F18EDEB&pPartner=MicDevtest&reference=My%20reference&telephone_number=0203%20333%203333
+    uri: http://mic-leads.dev-test.makeiteasy.com/api/v1/create
     body:
       encoding: UTF-8
       string: "{}"
@@ -17,8 +17,8 @@ http_interactions:
       - Ruby
   response:
     status:
-      code: 400
-      message: Bad Request
+      code: 401
+      message: Unauthorized
     headers:
       Content-Type:
       - application/json; charset=utf-8
@@ -27,11 +27,11 @@ http_interactions:
       Connection:
       - keep-alive
       Status:
-      - 400 Bad Request
+      - 401 Unauthorized
       Cache-Control:
       - no-cache
       X-Runtime:
-      - '0.004581'
+      - '0.002005'
       X-Frame-Options:
       - SAMEORIGIN
       X-Xss-Protection:
@@ -39,18 +39,16 @@ http_interactions:
       X-Content-Type-Options:
       - nosniff
       X-Request-Id:
-      - 2ec47042-fe5d-4645-bf29-a1c853c6d7bb
+      - d71afc4d-6e18-4b30-a851-26d977b2cf39
       Date:
-      - Wed, 07 Mar 2018 21:48:34 GMT
+      - Wed, 07 Mar 2018 21:49:11 GMT
       X-Powered-By:
       - Phusion Passenger 5.1.12
       Server:
       - nginx + Phusion Passenger 5.1.12
     body:
       encoding: UTF-8
-      string: '{"message":"Format errors on validation","errors":["Field ''name''
-        is blank","Field ''name'' wrong format, ''name'' must be composed with 2 separated
-        words (space between)"]}'
+      string: '{"message":"Unauthorised access_token"}'
     http_version: 
-  recorded_at: Wed, 07 Mar 2018 21:48:34 GMT
+  recorded_at: Wed, 07 Mar 2018 21:49:11 GMT
 recorded_with: VCR 4.0.0
