@@ -1,5 +1,5 @@
 class Customer < ActiveResource::Base
-  self.site               = 'http://mic-leads.dev-test.makeiteasy.com/api/v1'
+  self.site               = "#{ENV['LEAD_API_URI']}/api/v1"
 
   headers['Content-Type'] = 'application/x-www-form-urlencoded'
   headers['Accept']       = 'application/json'
