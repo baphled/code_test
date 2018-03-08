@@ -26,6 +26,10 @@ class ContactDetailsController < ApplicationController
     )
   end
 
+  #
+  # NOTE: Ideally these should be aprt of the API headers and not passed as part of the main payload. So we keep them
+  # seperate for to make it clear they are used for authentication and authorisation.
+  #
   def auth_params
     {
       access_token: ENV['LEAD_API_ACCESS_TOKEN'],
