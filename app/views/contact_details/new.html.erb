@@ -4,9 +4,9 @@
       <%= @response['message'] %>
 
       <% if @response['errors'] %>
-        <ul>
+        <ul class="errors">
           <% @response['errors'].each do |error| %>
-            <li><%= error %></li>
+            <li class="error"><%= error %></li>
           <% end %>
         </ul>
       <% end %>
