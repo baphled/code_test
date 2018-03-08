@@ -10,21 +10,9 @@ RSpec.describe Customer do
   let(:business_name) { 'Some Business' }
   let(:telephone_number) { '0203 333 3333' }
 
-  subject do
-    described_class.new(
-      access_token: access_token,
-      pGUID: pGUID,
-      pAccName: pAccName,
-      pPartner: pPartner,
-      name: name,
-      business_name: business_name,
-      telephone_number: telephone_number,
-    )
-  end
-
   describe '#post' do
     let(:email) { 'y@me.com' }
-    let(:contact_name) { 'Joe Bloggs' }
+    let(:contact_time) { '2018-09-09 12:12:12' }
     let(:notes) { 'My notes' }
     let(:reference) { 'My reference' }
 
@@ -38,7 +26,7 @@ RSpec.describe Customer do
         business_name: business_name,
         telephone_number: telephone_number,
         email: email,
-        contact_name: contact_name,
+        contact_time: contact_time,
         notes: notes,
         reference: reference,
       }
@@ -50,8 +38,6 @@ RSpec.describe Customer do
         errors: []
       }
     end
-
-    subject { described_class.new(params) }
 
     it 'can handle a successful request' do
       VCR.use_cassette 'POST with correct params' do

@@ -11,7 +11,7 @@ RSpec.describe ContactDetails do
   let(:telephone_number) { '0203 333 3333' }
 
   let(:email) { 'y@me.com' }
-  let(:contact_name) { 'Joe Bloggs' }
+  let(:contact_time) { '2018-09-09 12:12:12' }
   let(:notes) { 'My notes' }
   let(:reference) { 'My reference' }
 
@@ -25,7 +25,7 @@ RSpec.describe ContactDetails do
       business_name: business_name,
       telephone_number: telephone_number,
       email: email,
-      contact_name: contact_name,
+      contact_time: contact_time,
       notes: notes,
       reference: reference,
     }

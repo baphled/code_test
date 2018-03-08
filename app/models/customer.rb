@@ -4,15 +4,6 @@ class Customer < ActiveResource::Base
   headers['Content-Type'] = 'application/x-www-form-urlencoded'
   headers['Accept']       = 'application/json'
 
-  schema do
-    attribute :business_name, :string
-    attribute :telephone_number, :string
-    attribute :email, :string
-    attribute :contact_name, :string
-    attribute :notes, :string
-    attribute :reference, :string
-  end
-
   private
 
   def custom_method_new_element_url(method_name, options = {})
