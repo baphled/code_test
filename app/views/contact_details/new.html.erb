@@ -1,21 +1,20 @@
 <section id="contact">
   <% if @response %>
     <section class='message'>
-      <%= @response['message'] %>
-
-      <% if @response['errors'] %>
-        <ul class="errors">
-          <% @response['errors'].each do |error| %>
-            <li class="error"><%= error %></li>
-          <% end %>
-        </ul>
+      <% if not @response['errors'].empty? %>
+        <div class="alert alert-danger">
+          <%= @response['message'] %>
+        </div>
+        <% else %>
+        <div class="alert alert-success">
+          <%= @response['message'] %>
+        </div>
       <% end %>
-
     </section>
-  <%end %>
+  <% end %>
 
-  <%= simple_form_for @contact_details, url: contact_details_path, method: :post do |f| %>
-    <%= f.input :name %>
+  <%= simple_form_for @contact_details, url: contact_details_path, method: :post, html: {class: 'horizontal-form'} do |f| %>
+    <%= f.input :name, html: { class: 'col-4' } %>
     <%= f.input :business_name %>
     <%= f.input :telephone_number %>
     <%= f.input :email %>
@@ -23,6 +22,19 @@
     <%= f.input :notes %>
     <%= f.input :reference %>
 
+    <% if @response && @response['errors'] %>
+      <ul class="alert">
+        <% @response['errors'].each do |error| %>
+          <li class="alert alert-danger"><%= error %></li>
+        <% end %>
+      </ul>
+    <% elsif @response && @response['message'] %>
+      <div class="alert alert-success">
+        <%= @response['message'] %>
+      </div>
+    <% end %>
+
     <%= f.submit %>
   <% end %>
+
 </section>
